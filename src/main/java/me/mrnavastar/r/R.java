@@ -9,13 +9,10 @@ public class R {
     private static boolean oldJavaCompat = false;
     static {
         try {
-            // Check if the Field class has a "modifiers" field
             Field.class.getDeclaredField("modifiers");
             oldJavaCompat = true;
-        } catch (NoSuchFieldException e) {
-        }
+        } catch (NoSuchFieldException ignore) {}
     }
-
 
     private final Object instance;
     private final Class<?> clazz;
